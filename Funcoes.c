@@ -140,9 +140,59 @@ void editar_informacoes_de_uma_tarefa(Lista l) {
     }
 }    
 
-void remover_tarefa() {
-    printf("Oi 5\n");
+void removerTarefa(struct ListaTarefas *lista) {
+    int id;
+    printf("insira o numero da tarefa para ser removida: ");
+    scanf("%d" , &id);
+    int i, encontrado = 0;
+
+    for (i = 0; i < lista->quantidade; i++) {
+
+        if (lista->tarefas[i].id == id) {
+
+            encontrado = 1;
+
+            break;
+
+        }
+
+    }
+
+    if (encontrado) {
+
+        for (; i < lista->quantidade - 1; i++) {
+
+            lista->tarefas[i] = lista->tarefas[i + 1];
+
+        }
+
+        lista->quantidade--;
+
+        printf("Tarefa removida com sucesso.\n");
+
+    } else {
+
+        printf("Tarefa %d nao encontrada.\n", id);
+
+    }
+
+    int main() {
+
+    struct ListaTarefas lista;
+
+     inicializarLista(&lista);
+
+     exibirTarefas(&lista);
+
+    int id;
+ 
+    printf("insira o numero da tarefa para ser removida: ");
+    scanf("%d" , &id);
+    removerTarefa(&lista, id);
+
+
 }
+  }
 
 void marcar_conclusao_de_uma_tarefa_especifica() {
     printf("Oi 6\n");
