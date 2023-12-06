@@ -215,6 +215,22 @@ void marcar_conclusao_de_uma_tarefa_especifica() {
 }
 
 void salvar_lista_de_tarefas_em_um_arquivo() {
-    printf("Oi 7\n");
+    printf("Oi 7\n");}
+void salvar_lista_de_tarefas_em_um_arquivo(Lista l) {
+    FILE *arquivo;
+    arquivo = fopen("lista_de_tarefas.txt", "w");
+
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        return;
+    }
+
+    for (int i = 0; i < l.posicaoAtual; i++) {
+        fprintf(arquivo, "Tarefa %d: %s\n", i + 1, l.tarefas[i].descricao);
+    }
+
+    fclose(arquivo);
+    printf("Lista de tarefas salva com sucesso no arquivo 'lista_de_tarefas.txt'.\n");
 }
+
 
