@@ -72,8 +72,24 @@ void mostrar_tarefas_cadastradas(Lista l) {
     }
 }
 
-void buscar_por_tarefa() {
-    printf("Oi 3\n");
+void buscar_por_tarefa(Lista l) {
+    char termo[50];
+    printf("Digite o nome da tarefa a ser buscada: ");
+    scanf("%s", termo);
+
+    int encontrada = 0;
+    printf("Tarefas encontradas:\n");
+    for (int i = 0; i < l.posicaoAtual; i++) {
+        if (strstr(l.tarefas[i].Nome, termo) != NULL) {
+            printf("%s - %s\n", l.tarefas[i].Nome, l.tarefas[i].Status ? "Concluída" : "Pendente");
+            encontrada = 1;
+            break;
+        }
+    }
+
+    if (!encontrada) {
+        printf("Nenhuma tarefa encontrada.\n");
+    }
 }
 
 void editar_informacoes_de_uma_tarefa(Lista l) {
