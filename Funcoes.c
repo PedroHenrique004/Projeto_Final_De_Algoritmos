@@ -3,7 +3,7 @@
 #include <string.h>
 
 typedef struct tarefa {
-    int id; // Supondo que cada tarefa tenha um identificador único
+    int id;
     char Nome[50];
     char Dificuldade[20];
     char Status[20];
@@ -12,24 +12,24 @@ typedef struct tarefa {
 typedef struct listaDeTarefas {
     Tarefa *tarefas;
     int posicaoAtual;
-    int capacidade; // Adicionado para controlar a capacidade total da lista
+    int capacidade;
 } Lista;
 
 void inicializarLista(Lista *l) {
-    l->capacidade = 10; // Inicializa a lista com capacidade para 10 tarefas
+    l->capacidade = 10;
     l->tarefas = (Tarefa*)calloc(l->capacidade, sizeof(Tarefa));
     l->posicaoAtual = 0;
 }
 
 void redimensionarLista(Lista *l) {
     if (l->posicaoAtual == l->capacidade) {
-        l->capacidade *= 2; // Duplica a capacidade se necessário
+        l->capacidade *= 2; 
         l->tarefas = (Tarefa*)realloc(l->tarefas, l->capacidade * sizeof(Tarefa));
     }
 }
 
 void inserir_nova_tarefa(Lista *l) {
-    redimensionarLista(l); // Garante que há espaço para a nova tarefa
+    redimensionarLista(l); 
 
     printf("\nDigite o nome da tarefa em ate 50 caracteres:");
     scanf(" %49[^\n]", l->tarefas[l->posicaoAtual].Nome);
@@ -57,7 +57,7 @@ void inserir_nova_tarefa(Lista *l) {
     }
     strcpy(l->tarefas[l->posicaoAtual].Status, status == 1 ? "Nao concluida" : "Concluida");
 
-    l->tarefas[l->posicaoAtual].id = l->posicaoAtual + 1; // Atribui um ID único à tarefa
+    l->tarefas[l->posicaoAtual].id = l->posicaoAtual + 1;
     l->posicaoAtual++;
 
     printf("\nTarefa inserida com sucesso!\n");
@@ -108,7 +108,6 @@ void editar_informacoes_de_uma_tarefa(Lista *l) {
     }
     scanf("%d", &numero);
 
-    // Encontrar a tarefa pelo ID
     Tarefa *tarefa = NULL;
     for (int i = 0; i < l->posicaoAtual; i++) {
         if (l->tarefas[i].id == numero) {
@@ -155,7 +154,6 @@ void editar_informacoes_de_uma_tarefa(Lista *l) {
             printf("\nStatus alterado com sucesso!\n");
             break;
         case 4:
-            // Voltar ao menu anterior
             return;
     }
 }
@@ -165,7 +163,6 @@ void removerTarefa(Lista *l, int id) {
     for (int i = 0; i < l->posicaoAtual; i++) {
         if (l->tarefas[i].id == id) {
             encontrado = 1;
-            // Desloca as tarefas seguintes para a posição atual
             for (int j = i; j < l->posicaoAtual - 1; j++) {
                 l->tarefas[j] = l->tarefas[j + 1];
             }

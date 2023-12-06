@@ -5,9 +5,10 @@
 
 int main() {
     int opcao;
-
+    int id;
     Lista l;
-    inicializarLista(&l); // Inicializa a lista de tarefas
+    inicializarLista(&l);
+
 
     do {
         printf("\nO que deseja fazer?\n");
@@ -39,7 +40,6 @@ int main() {
                     editar_informacoes_de_uma_tarefa(&l);
                     break;
                 case 5:
-                    int id;
                     printf("Digite o ID da tarefa a ser removida: ");
                     scanf("%d", &id);
                     removerTarefa(&l, id);
