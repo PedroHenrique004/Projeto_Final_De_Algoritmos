@@ -214,8 +214,6 @@ void marcar_conclusao_de_uma_tarefa_especifica() {
     printf("Oi 6\n");
 }
 
-void salvar_lista_de_tarefas_em_um_arquivo() {
-    printf("Oi 7\n");}
 void salvar_lista_de_tarefas_em_um_arquivo(Lista l) {
     FILE *arquivo;
     arquivo = fopen("lista_de_tarefas.txt", "w");
