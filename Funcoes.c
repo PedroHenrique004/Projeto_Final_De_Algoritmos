@@ -177,18 +177,7 @@ void removerTarefa(Lista *l, int id) {
 }
 
 void marcar_conclusao_de_uma_tarefa_especifica(Lista *l) {
-    int id;
-    printf("Digite o ID da tarefa que deseja marcar como concluida: ");
-    scanf("%d", &id);
-
-    for (int i = 0; i < l->posicaoAtual; i++) {
-        if (l->tarefas[i].id == id) {
-            strcpy(l->tarefas[i].Status, "Concluida");
-            printf("Tarefa %d marcada como concluida.\n", id);
-            return;
-        }
-    }
-    printf("Tarefa com ID %d nao encontrada.\n", id);
+    
 }
 
 void salvar_lista_de_tarefas_em_um_arquivo(Lista *l) {
