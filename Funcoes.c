@@ -213,7 +213,7 @@ void salvar_lista_de_tarefas_em_um_arquivo(Lista *l) {
         return;
     }
     for (int i = 0; i < l->posicaoAtual; i++) {
-        fprintf(arquivo, "ID: %d, Nome: %s, Dificuldade: %s, Status: %s\n",
+        fprintf(arquivo, "ID: %d\n Nome: %s\n Dificuldade: %s\n Status: %s\n",
                 l->tarefas[i].id, l->tarefas[i].Nome, l->tarefas[i].Dificuldade, l->tarefas[i].Status);
     }
     fclose(arquivo);
