@@ -163,7 +163,7 @@ void removerTarefa(Lista *l, int id) {
 
     printf("ID's das tarefas:\n");
         for (int i = 0; i < l->posicaoAtual; i++) {
-            printf("Id: %d: Nome: %s\n", l->tarefas[i].id, l->tarefas[i].Nome);
+            printf("Id: %d: \nNome: %s\n", l->tarefas[i].id, l->tarefas[i].Nome);
         }
 
     printf("Digite o ID da tarefa a ser removida: ");
