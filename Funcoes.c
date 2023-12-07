@@ -160,16 +160,25 @@ void editar_informacoes_de_uma_tarefa(Lista *l) {
 
 void removerTarefa(Lista *l, int id) {
     int encontrado = 0;
-    for (int i = 0; i < l->posicaoAtual; i++) {
-        if (l->tarefas[i].id == id) {
-            encontrado = 1;
-            for (int j = i; j < l->posicaoAtual - 1; j++) {
-                l->tarefas[j] = l->tarefas[j + 1];
-            }
-            l->posicaoAtual--;
-            printf("Tarefa removida com sucesso.\n");
-            break;
+
+    printf("ID's das tarefas:\n");
+        for (int i = 0; i < l->posicaoAtual; i++) {
+            printf("Id: %d: Nome: %s\n", l->tarefas[i].id, l->tarefas[i].Nome);
         }
+
+    printf("Digite o ID da tarefa a ser removida: ");
+    scanf("%d", &id);
+
+        for (int i = 0; i < l->posicaoAtual; i++) {
+            if (l->tarefas[i].id == id) {
+                encontrado = 1;
+                for (int j = i; j < l->posicaoAtual - 1; j++) {
+                    l->tarefas[j] = l->tarefas[j + 1];
+                }
+                l->posicaoAtual--;
+                printf("Tarefa removida com sucesso.\n");
+                break;
+            }
     }
     if (!encontrado) {
         printf("Tarefa com ID %d nao encontrada.\n", id);
