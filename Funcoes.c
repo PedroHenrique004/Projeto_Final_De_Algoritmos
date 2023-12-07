@@ -166,7 +166,7 @@ void removerTarefa(Lista *l, int id) {
             printf("Id: %d: \nNome: %s\n", l->tarefas[i].id, l->tarefas[i].Nome);
         }
 
-    printf("Digite o ID da tarefa a ser removida: ");
+    printf("Digite o ID da tarefa a ser removida:\n ");
     scanf("%d", &id);
 
         for (int i = 0; i < l->posicaoAtual; i++) {
@@ -194,7 +194,7 @@ void marcar_conclusao_de_uma_tarefa_especifica(Lista *l) {
     }
 
     int indice;
-    printf("Digite o numero da tarefa concluida: ");
+    printf("Digite o numero da tarefa concluida:\n ");
     scanf("%d", &indice);
 
     if (indice >= 1 && indice <= l->posicaoAtual) {
