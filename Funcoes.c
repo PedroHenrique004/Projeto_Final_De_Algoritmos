@@ -216,7 +216,7 @@ void encerrar_programa(Lista *l) {
         free(l->tarefas);
         l->tarefas = NULL;
     }
-    printf("Programa encerrado com sucesso. Até mais!\n");
+    printf("Programa encerrado com sucesso. Ate mais!\n");
     exit(0);
 }
 
