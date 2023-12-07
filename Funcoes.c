@@ -176,10 +176,10 @@ void removerTarefa(Lista *l, int id) {
     }
 }
 
-  void marcar_conclusao_de_uma_tarefa_especifica(Lista l) {
+void marcar_conclusao_de_uma_tarefa_especifica(Lista *l) {
     mostrar_tarefas_cadastradas(l);
 
-    if (l.posicaoAtual == 0) {
+    if (l->posicaoAtual == 0) {
         printf("Nenhuma tarefa cadastrada.\n");
         return;
     }
@@ -188,13 +188,14 @@ void removerTarefa(Lista *l, int id) {
     printf("Digite o numero da tarefa concluida: ");
     scanf("%d", &indice);
 
-    if (indice >= 1 && indice <= l.posicaoAtual) {
-        strcpy(l.tarefas [indice - 1].Status, "CONCLUIDA");
-        printf("Tarefa marcada como concluida.\n");
+    if (indice >= 1 && indice <= l->posicaoAtual) {
+        strcpy(l->tarefas[indice - 1].Status, "ConcluIda");
+        printf("Tarefa marcada como concluIda.\n");
     } else {
         printf("Indice invalido.\n");
     }
 }
+
 
 void salvar_lista_de_tarefas_em_um_arquivo(Lista *l) {
     FILE *arquivo = fopen("lista_de_tarefas.txt", "w");
