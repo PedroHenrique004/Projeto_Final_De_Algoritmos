@@ -40,8 +40,6 @@ int main() {
                     editar_informacoes_de_uma_tarefa(&l);
                     break;
                 case 5:
-                    printf("Digite o ID da tarefa a ser removida: ");
-                    scanf("%d", &id);
                     removerTarefa(&l, id);
                     break;
                 case 6:
